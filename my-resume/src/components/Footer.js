@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Footer() {
     const socialLinks = [
         { platform: "linkedin", url: "https://linkedin.com/in/yourprofile" },

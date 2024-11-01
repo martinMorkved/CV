@@ -1,35 +1,37 @@
-function Experience() {
-    const experiences = [
-        {
-            title: "Senior Developer",
-            company: "Company Name",
-            period: "2020 - Present",
-            achievements: [
-                "Led development of key features",
-                "Managed team of junior developers"
-            ]
-        }
-        // Add more experiences here
-    ];
+import React from 'react';
 
+function Experience({ experiences }) {
     return (
         <section id="experience">
             <div className="container">
                 <h2>Professional Experience</h2>
                 {experiences.map((exp, index) => (
-                    <div className="experience-item" key={index}>
-                        <h3>{exp.title}</h3>
-                        <p className="company">{exp.company}</p>
-                        <p className="date">{exp.period}</p>
-                        <ul>
-                            {exp.achievements.map((achievement, i) => (
-                                <li key={i}>{achievement}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    <ExperienceItem
+                        key={index}
+                        title={exp.title}
+                        company={exp.company}
+                        from={exp.from}
+                        to={exp.to}
+                        achievements={exp.achievements}
+                    />
                 ))}
             </div>
         </section>
+    );
+}
+
+function ExperienceItem({ title, company, from, to, achievements }) {
+    return (
+        <div className="experience-item">
+            <h3>{title}</h3>
+            <p className="company">{company}</p>
+            <p className="date">{from} - {to}</p>
+            <ul>
+                {achievements.map((achievement, i) => (
+                    <li key={i}>{achievement}</li>
+                ))}
+            </ul>
+        </div>
     );
 }
 
